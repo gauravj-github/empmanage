@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.nav{
+background-color: black;
+display: flex;
+justify-content:space-between;
+align-items: center;
+margin:0 auto;
+height: 70px;
+padding:0 30px;
+
+}
+.nav ul{
+    display: flex;
+    list-style: none;
+    
+    gap: 40px;
+}
+.nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+.search input{
+    padding: 8px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid black;
+
+    
+}
+.containert{
+    background-color: red;
+    height: calc(100vh - 160px);
+    padding-top: 90px;
+
+}
+.form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 500px;
+    width: 600px;
+    background-color: white;
+    border-radius: 20px;
+    
+
+}
+.form h1{
+    font-size: 30px;
+}
+.form input{
+    margin: 20px 0px;
+    padding:10px;
+    width: 500px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size:20px ;
+}
+
+.btn{
+    width:300px;
+    height:30px ;
+    background-color: black;
+    color: white;
+    outline: none;
+    border: 1px solid black;
+    border-radius:7px ;
+    font-size: 16px;
+    font-weight: 600;
+}
+.btn a{
+    color: white;
+    text-decoration: none;
+
+}
+
+/* next page employeedata css */
+.table{
+    background-color: red;
+}

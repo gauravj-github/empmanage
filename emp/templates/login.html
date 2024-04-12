@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .bapcontainer {
+            width: 100%;
+    background: linear-gradient(black,red);
+            height: 100vh;
+            display: grid;
+            place-items: center;
+
+        }
+
+        .container {
+            background-color: white;
+            text-align: center;
+            width: 80%;
+            height: 60vh;
+            display: grid;
+            place-items: center;
+
+
+        }
+
+        .inner {
+            margin: 20PX 20PX 20PX 30PX;
+
+        }
+
+
+
+        .forgot {
+            color: rgb(228, 29, 29);
+        }
+        .forgot:hover{
+            text-decoration:underline dashed;
+        }
+
+        input {
+        border: none;
+        
+        border-bottom:2px solid gray;
+        padding: 10px;
+            
+
+
+        }
+        input:hover{
+            border-bottom: 2px solid rgb(230, 13, 13);
+
+        }
+
+        .width {
+            font-size: 20px;
+            width: 400px;
+        }
+
+        .cfog {
+            font-size: 20px;
+            font-weight: 15%;
+            margin: 10px;
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+
+        }
+       
+
+        button {
+            width: 400px;
+            height: 5vh;
+            font-size: 20px;
+            border-color: rgb(228, 29, 29);
+            border-radius: 6px;
+            transition: ease-in 1s;
+            
+        }
+
+        button:hover {
+            color: rgb(24, 220, 70);
+            background-color:black ;
+            border-radius: 10px;
+            font-size: 25px;
+            border: 4px solid black;
+
+
+        }
+
+        .center {
+            position: absolute;
+            left: 520px;
+            top: 175px;
+            font-size: 25px;
+
+        }
+
+        .cente {
+            position: absolute;
+            left: 520px;
+            top: 285px;
+            font-size: 25px;
+        }
+
+        .width{
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+   
+    <form action=""  method="post">
+        {% csrf_token %}
+    <div class="bapcontainer">
+        
+            <div class="container">
+                
+
+                <div class="inner">
+
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5 {% endif %}">{{message}}</p>
+                    {% endfor %}
+                    {% endif %}
+                    <input type="text" placeholder="user name"  class="width" name="username">
+
+                </div>
+                <div class="pass">
+                    <input type="text" placeholder="please enter the login password" class="width" name="password">
+                </div>
+                <div class="cfog">
+                    <div>
+
+                        <input type="checkbox" id="mycheckbox" name="mycheckbox" class="checkbox">
+                        <label for="mycheckbox" class="forgot">Remember me</label>
+                    </div>
+                    <div class="btn">
+                        <a href="" class="forgot">Forgot password</a>
+                    </div>
+                </div>
+                <button type="submit">Login</button>
+                <button><a href="{% url 'registration'%}" style="text-decoration:none; color:black;">register</a></button>
+
+
+            </div>
+        
+    </div>
+   
+</form>
+</body>
+<script>
+console.log("xhdgvb")
+</script>
+
+</html>

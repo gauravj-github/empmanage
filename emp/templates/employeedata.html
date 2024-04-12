@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  
+    *{
+      margin: 0;
+      padding: 0;
+      
+  }
+  
+  .nav{
+  background-color: black;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  margin:0 auto;
+  height: 70px;
+  padding:0 30px;
+  
+  }
+  .naavh1 {
+    color:white;
+  }
+  .nav ul{
+      display: flex;
+      list-style: none;
+      
+      gap: 40px;
+  }
+  .nav ul li a{
+      text-decoration: none;
+      color: white;
+  }
+  
+  .search input{
+      padding: 8px;
+      border-radius: 10px;
+      outline: none;
+      border: 1px solid black;
+  
+      
+  }
+    body{
+      background-color: rgb(150, 82, 82);
+
+    }
+   .container{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap:32px ;
+    column-gap: 20px;
+    justify-content:center;
+    align-items: center;
+    padding-top: 80px;
+
+
+    
+   }
+   .card{
+    
+    backdrop-filter: blur(8px);
+    box-shadow:0 4px 8px 0 rgba(0,0, 0, 0.2), 0 6px 20px 0 rgba(0,0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    width:400px;
+    height: 300px;
+    transition: 0.2s ease-in;
+
+    
+    &:hover{
+      width:420px;
+      height: 320px;
+      transition: 0.2s ease-out;
+
+    }
+
+   }
+   .card img{
+    margin-top:10px;
+    width:80px;
+    height:80px;
+    border-radius: 14px;  
+   }
+   .empdetail{
+    font-size:20px;
+   }
+.btn{
+    margin-top: 30px;
+    background: #ff4343;
+    border-radius: 5px;
+padding: 10px 17px;
+border: none;
+cursor: pointer;
+transition: 0.3s ease-in-out;
+&:hover{
+background-color:black;
+color:white;
+transform:rotatex(360deg);
+   }
+  }
+.btn a{
+    text-decoration:none;
+    color: white;
+
+  }
+  .bt{
+    padding: 4px 5px;
+    background-color: rgb(150, 82, 82);
+    border: none;
+    margin: 0px 2px;
+cursor: pointer;
+color:white;
+    transition: 0.3s ease-in-out;
+&:hover{
+background-color:black;
+color:white;
+transform:rotatex(360deg);
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class='naavh1'>
+       <h1>EMPMANAGEMENT</h1>
+    </div>
+    <ul>
+    <li><a href="{% url 'empdetail'%}">Home</a></li>
+    <li><a href="{%url 'employdata'%}">All Employee</a></li>
+    <li><a href="">Update</a></li>
+
+    </ul>
+
+    <div class="search">
+        <form action="" method="post">
+          {% csrf_token %}
+          <input type="text" placeholder="enetr empname" name="search">
+          <button type="submit"class="bt" > search</button>
+          <button class="bt"><a href="/logout/" style="text-decoration:none; color:white;">LogOut</a></button>
+        </form>
+        
+
+    </div>
+</div>
+<div class="container">
+  {% for employ in employ %}
+  <div class="card">
+    <img src="{{employ.empphoto.url}}" alt="k">
+    <div class="empdetail">
+      <h2>NAME : {{employ.employeename}}</h2>
+      <p>age : {{employ.age}}</p>
+      <p>phone : {{employ.phone}}</p>
+      <p>email : {{employ.email}}</p>
+    </div>
+    <button class="btn"><a href="/employdata1/{{employ.id}}">resume</a></button>
+  </div>
+
+{% endfor %}
+
+    
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .bapcontainer {
+            width: 100%;
+            background-color: rgb(150, 82, 82);
+            height: 100vh;
+            display: grid;
+            place-items: center;
+
+        }
+
+        .container {
+            background-color: white;
+            text-align: center;
+            width: 50%;
+            height: 60vh;
+            display: grid;
+            place-items: center;
+
+
+        }
+
+        .inner {
+            margin: 20PX 20PX 20PX 30PX;
+
+        }
+
+
+
+        .forgot {
+            color: rgb(228, 29, 29);
+        }
+        .forgot:hover{
+            text-decoration:underline dashed;
+        }
+
+        input {
+        border: none;
+        
+        border-bottom:2px solid gray;
+        padding: 10px;
+            
+
+
+        }
+        input:hover{
+            border-bottom: 2px solid rgb(230, 13, 13);
+
+        }
+
+        .width {
+            font-size: 20px;
+            width: 400px;
+        }
+
+        .cfog {
+            font-size: 20px;
+            font-weight: 15%;
+            margin: 10px;
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+
+        }
+       
+
+        button {
+            width: 400px;
+            height: 5vh;
+            font-size: 20px;
+            border-color: rgb(228, 29, 29);
+            border-radius: 6px;
+            transition: ease-in 1s;
+            
+        }
+
+        button:hover {
+            color: rgb(24, 220, 70);
+            background-color: rgb(228, 29, 29);
+            border-radius: 10px;
+            font-size:22px;
+            border: 2px solid black;
+
+
+        }
+
+        .center {
+            position: absolute;
+            left: 520px;
+            top: 200px;
+            font-size: 25px;
+
+        }
+
+        .cente {
+            position: absolute;
+            left: 520px;
+            top: 370px;
+            font-size: 25px;
+        }
+
+        .width{
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+   
+    <div class="bapcontainer">
+        
+            <div class="container">
+
+                <div class="inner">
+                    
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5 {% endif %}">{{message}}</p>
+                    {% endfor %}
+                    {% endif %}
+                    <form action="" method="post">
+                        {% csrf_token %}
+                    <input type="text" placeholder="firstname" name="firstname"  class="width" >
+
+                </div>
+                <div class="pass">
+                   
+                    <input type="text" placeholder="lastname" name="lastname" class="width" >
+                </div>
+                <div class="pass">
+                   
+                    <input type="text" placeholder="username"  name="username" class="width" >
+                </div>
+                <div class="pass">
+                   
+                    <input type="text" placeholder="password" name="password" class="width" >
+                </div>
+                
+                     <button type="submit" >REGISTRATION</button>
+                     <button type="submit" ><a href="/login/" style="text-decoration:none;color:black;">LOGIN</a></button>
+
+
+            </div>
+        
+    </div>
+   
+</form>
+
+</body>
+
+</html>
